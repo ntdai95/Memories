@@ -7,7 +7,7 @@ import tourRouter from "./routes/tour.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const port = process.env.PORT || 5000;
+const port = process.env.SERVER_PORT || 5000;
 const app = express();
 
 app.use(morgan("dev"));
