@@ -20,6 +20,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getTours(currentPage));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPage]);
 
     if (loading) {

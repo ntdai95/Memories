@@ -57,8 +57,8 @@ const Header = () => {
                 <MDBCollapse show={show} navbar>
                     <MDBNavbarNav right fullWidth={false} className="mb-2 mb-lg-0">
                         {user?.result?._id && (
-                            <h5 style={{ marginRight: "30px", marginTop: "27px" }}>
-                                Logged in as: {user?.result?.name}
+                            <h5 style={{ marginRight: "220px", marginTop: "27px" }}>
+                                Welcome, {user?.result?.name}!
                             </h5>
                         )}
                         <MDBNavbarItem>

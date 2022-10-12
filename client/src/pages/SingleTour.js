@@ -13,7 +13,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import moment from "moment";
 import { getRelatedTours, getTour } from "../redux/features/tourSlice";
 import RelatedTours from "../components/RelatedTours";
-import DisqusThread from "../components/DisqusThread";
 
 const SingleTour = () => {
     const dispatch = useDispatch();
@@ -24,12 +23,14 @@ const SingleTour = () => {
 
     useEffect(() => {
         tags && dispatch(getRelatedTours(tags));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tags]);
 
     useEffect(() => {
         if (id) {
             dispatch(getTour(id));
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     return (
@@ -63,7 +64,6 @@ const SingleTour = () => {
                     </MDBCardBody>
                     <RelatedTours relatedTours={relatedTours} tourId={id} />
                 </MDBCard>
-                <DisqusThread id={id} title={tour.title} path={`/tour/${id}`} />
             </MDBContainer>
         </>
     );

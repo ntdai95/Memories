@@ -1,9 +1,8 @@
 import axios from "axios";
 
-const devEnv = process.env.NODE_ENV !== "production";
-const { REACT_APP_DEV_API, REACT_APP_PROD_API } = process.env;
+const { REACT_APP_SERVER_URL } = process.env;
 const API = axios.create({
-    baseURL: `${devEnv ? REACT_APP_DEV_API : REACT_APP_PROD_API}`,
+    baseURL: `${REACT_APP_SERVER_URL}`,
 });
 
 API.interceptors.request.use((req) => {
@@ -16,7 +15,6 @@ API.interceptors.request.use((req) => {
 
 export const signIn = (formData) => API.post("/users/signin", formData);
 export const signUp = (formData) => API.post("/users/signup", formData);
-export const googleSignIn = (result) => API.post("/users/googleSignIn", result);
 export const createTour = (tourData) => API.post("/tour", tourData);
 export const getTours = (page) => API.get(`/tour?page=${page}`);
 export const getTour = (id) => API.get(`/tour/${id}`);
