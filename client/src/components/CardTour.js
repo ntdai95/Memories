@@ -69,9 +69,9 @@ const CardTour = ({
     };
 
     return (
-        <MDBCardGroup>
+        <MDBCardGroup style={{ marginTop: "4%" }}>
             <MDBCard className="h-100 mt-2 d-sm-flex" style={{ maxWidth: "20rem" }}>
-                <MDBCardImage src={imageFile} alt={title} position="top" style={{ marginTop: "10%", maxWidth: "100%", height: "180px" }} />
+                <MDBCardImage src={imageFile} alt={title} position="top" style={{ maxWidth: "100%", height: "180px" }} />
                 <div className="top-left">{name}</div>
                 <span className="text-start tag-card">
                     {tags.map((tag) => (

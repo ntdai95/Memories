@@ -49,7 +49,7 @@ const Header = () => {
         <MDBNavbar fixed="top" expand="lg" style={{ backgroundColor: "#f0e6ea" }}>
             <MDBContainer>
                 <MDBNavbarBrand href="/" style={{ color: "#606080", fontWeight: "600", fontSize: "22px" }}>
-                    Touropedia
+                    Memories
                 </MDBNavbarBrand>
                 <MDBNavbarToggler type="button" aria-expanded="false" aria-label="Toogle navigation" onClick={() => setShow(!show)} style={{ color: "#606080" }}>
                     <MDBIcon icon="bars" fas />

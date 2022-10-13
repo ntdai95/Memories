@@ -37,7 +37,7 @@ const SingleTour = () => {
         <>
             <MDBContainer>
                 <MDBCard className="mb-3 mt-2">
-                    <MDBCardImage position="top" style={{ width: "100%", maxHeight: "600px" }} src={tour.imageFile} alt={tour.title} />
+                    <MDBCardImage position="top" style={{ marginTop: "7%", width: "100%", maxHeight: "600px" }} src={tour.imageFile} alt={tour.title} />
                     <MDBCardBody>
                         <MDBBtn tag="a" color="none" style={{ float: "left", color: "#000" }} onClick={() => navigate("/")}>
                             <MDBIcon fas size="lg" icon="long-arrow-alt-left" style={{ float: "left" }} />
