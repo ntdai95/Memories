@@ -3,7 +3,6 @@ import * as api from "../api";
 
 export const login = createAsyncThunk("auth/login", async ({ formValue, navigate, toast }, { rejectWithValue }) => {
         try {
-            console.log("log");
             const response = await api.signIn(formValue);
             toast.success("Login Successfully");
             navigate("/");
