@@ -39,8 +39,7 @@ const CardTour = ({
             return likes.find((like) => like === userId) ? (
                 <>
                     <MDBIcon fas icon="thumbs-up" />
-                    &nbsp;
-                    {likes.length > 2 ? (
+                    &nbsp;{likes.length > 2 ? (
                         <MDBTooltip tag="a" title={`You and ${likes.length - 1} other people likes`}>
                             {likes.length} Likes
                         </MDBTooltip>
@@ -50,8 +49,8 @@ const CardTour = ({
                 </>
             ) : (
                 <>
-                <MDBIcon far icon="thumbs-up" />
-                &nbsp;{likes.length} {likes.length === 1 ? "Like" : "Likes"}
+                    <MDBIcon far icon="thumbs-up" />
+                    &nbsp;{likes.length} {likes.length === 1 ? "Like" : "Likes"}
                 </>
             );
         }
@@ -75,7 +74,7 @@ const CardTour = ({
                 <div className="top-left">{name}</div>
                 <span className="text-start tag-card">
                     {tags.map((tag) => (
-                        <Link to={`/tours/tag/${tag}`}> #{tag}</Link>
+                        <Link key={`${tag}`} to={`/tours/tag/${tag}`}> #{tag}</Link>
                     ))}
                     <MDBBtn style={{ float: "right", marginRight: "1rem" }} tag="a" color="none" onClick={!user?.result ? null : handleLike}>
                         {!user?.result ? (

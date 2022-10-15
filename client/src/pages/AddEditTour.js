@@ -95,7 +95,7 @@ const AddEditTour = () => {
                                 onChange={onInputChange}
                                 className="form-control"
                                 required
-                                invalid
+                                invalid="true"
                                 validation="Please provide title"/>
                         </div>
                         <div className="col-md-12">
@@ -107,8 +107,8 @@ const AddEditTour = () => {
                                 onChange={onInputChange}
                                 className="form-control"
                                 required
-                                invalid
-                                textarea
+                                invalid="true"
+                                textarea="true"
                                 rows={4}
                                 validation="Please provide description" />
                         </div>
@@ -116,7 +116,7 @@ const AddEditTour = () => {
                             <ChipInput
                                 name="tags"
                                 variant="outlined"
-                                placeholder="Enter Tag"
+                                placeholder="Type Tag and Press Enter"
                                 fullWidth
                                 value={tags}
                                 onAdd={(tag) => handleAddTag(tag)}

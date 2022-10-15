@@ -57,7 +57,7 @@ const Login = () => {
                                 name="email"
                                 onChange={onInputChange}
                                 required
-                                invalid
+                                invalid="true"
                                 validation="Please provide your email" />
                         </div>
                         <div className="col-md-12">
@@ -68,7 +68,7 @@ const Login = () => {
                                 name="password"
                                 onChange={onInputChange}
                                 required
-                                invalid
+                                invalid="true"
                                 validation="Please provide your password" />
                         </div>
                         <div className="col-12">

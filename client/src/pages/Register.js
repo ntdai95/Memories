@@ -64,7 +64,7 @@ const Register = () => {
                                 name="firstName"
                                 onChange={onInputChange}
                                 required
-                                invalid
+                                invalid="true"
                                 validation="Please provide first name" />
                         </div>
                         <div className="col-md-6">
@@ -75,7 +75,7 @@ const Register = () => {
                                 name="lastName"
                                 onChange={onInputChange}
                                 required
-                                invalid
+                                invalid="true"
                                 validation="Please provide last name" />
                         </div>
                         <div className="col-md-12">
@@ -86,7 +86,7 @@ const Register = () => {
                                 name="email"
                                 onChange={onInputChange}
                                 required
-                                invalid
+                                invalid="true"
                                 validation="Please provide email" />
                         </div>
                         <div className="col-md-12">
@@ -97,7 +97,7 @@ const Register = () => {
                                 name="password"
                                 onChange={onInputChange}
                                 required
-                                invalid
+                                invalid="true"
                                 validation="Please provide password" />
                         </div>
                         <div className="col-md-12">
@@ -108,7 +108,7 @@ const Register = () => {
                                 name="confirmPassword"
                                 onChange={onInputChange}
                                 required
-                                invalid
+                                invalid="true"
                                 validation="Please provide confirm password" />
                         </div>
                         <div className="col-12">
