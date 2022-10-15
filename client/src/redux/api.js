@@ -14,13 +14,13 @@ API.interceptors.request.use((req) => {
 
 export const signIn = (formData) => API.post("/users/signin", formData);
 export const signUp = (formData) => API.post("/users/signup", formData);
-export const createTour = (tourData) => API.post("/tour", tourData);
-export const getTours = (page) => API.get(`/tour?page=${page}`);
-export const getTour = (id) => API.get(`/tour/${id}`);
-export const deleteTour = (id) => API.delete(`/tour/${id}`);
-export const updateTour = (updatedTourData, id) => API.patch(`/tour/${id}`, updatedTourData);
-export const getToursByUser = (userId) => API.get(`/tour/userTours/${userId}`);
-export const getToursBySearch = (searchQuery) => API.get(`/tour/search?searchQuery=${searchQuery}`);
-export const getTagTours = (tag) => API.get(`/tour/tag/${tag}`);
-export const getRelatedTours = (tags) => API.post(`/tour/relatedTours`, tags);
-export const likeTour = (id) => API.patch(`/tour/like/${id}`);
+export const createMemory = (memoryData) => API.post("/memory", memoryData);
+export const getMemories = (page) => API.get(`/memory?page=${page}`);
+export const getMemory = (id) => API.get(`/memory/${id}`);
+export const deleteMemory = (id) => API.delete(`/memory/${id}`);
+export const updateMemory = (updatedMemoryData, id) => API.patch(`/memory/${id}`, updatedMemoryData);
+export const getMemoriesByUser = (userId) => API.get(`/memory/userMemories/${userId}`);
+export const getMemoriesBySearch = (searchQuery) => API.get(`/memory/search?searchQuery=${searchQuery}`);
+export const getTagMemories = (tag) => API.get(`/memory/tag/${tag}`);
+export const getRelatedMemories = (tags) => API.post(`/memory/relatedMemories`, tags);
+export const likeMemory = (id) => API.patch(`/memory/like/${id}`);

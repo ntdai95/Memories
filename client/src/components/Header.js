@@ -12,7 +12,7 @@ import {
 } from "mdb-react-ui-kit";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogout } from "../redux/features/authSlice";
-import { searchTours } from "../redux/features/tourSlice";
+import { searchMemories } from "../redux/features/memorySlice";
 import { useNavigate } from "react-router-dom";
 import decode from "jwt-decode";
 
@@ -33,8 +33,8 @@ const Header = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (search) {
-            dispatch(searchTours(search));
-            navigate(`/tours/search?searchQuery=${search}`);
+            dispatch(searchMemories(search));
+            navigate(`/memories/search?searchQuery=${search}`);
             setSearch("");
         } else {
             navigate("/");
@@ -69,8 +69,8 @@ const Header = () => {
                         {user?.result?._id && (
                             <>
                                 <MDBNavbarItem>
-                                    <MDBNavbarLink href="/addTour">
-                                        <p className="header-text">Add Tour</p>
+                                    <MDBNavbarLink href="/addMemory">
+                                        <p className="header-text">Add Memory</p>
                                     </MDBNavbarLink>
                                 </MDBNavbarItem>
                                 <MDBNavbarItem>
@@ -97,7 +97,7 @@ const Header = () => {
                         )}
                     </MDBNavbarNav>
                     <form className="d-flex input-group w-auto" onSubmit={handleSubmit}>
-                        <input type="text" className="form-control" placeholder="Search Tour" value={search} onChange={(e) => setSearch(e.target.value)}/>
+                        <input type="text" className="form-control" placeholder="Search Memory" value={search} onChange={(e) => setSearch(e.target.value)}/>
                         <div style={{ marginTop: "5px", marginLeft: "5px" }}>
                             <MDBIcon fas icon="search" />
                         </div>

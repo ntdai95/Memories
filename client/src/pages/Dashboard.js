@@ -13,19 +13,19 @@ import {
 } from "mdb-react-ui-kit";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteTour, getToursByUser } from "../redux/features/tourSlice";
+import { deleteMemory, getMemoriesByUser } from "../redux/features/memorySlice";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 
 const Dashboard = () => {
     const { user } = useSelector((state) => ({ ...state.auth }));
-    const { userTours, loading } = useSelector((state) => ({ ...state.tour }));
+    const { userMemories, loading } = useSelector((state) => ({ ...state.memory }));
     const userId = user?.result?._id;
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (userId) {
-            dispatch(getToursByUser(userId));
+            dispatch(getMemoriesByUser(userId));
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userId]);
@@ -43,25 +43,25 @@ const Dashboard = () => {
     }
 
     const handleDelete = (id) => {
-        if (window.confirm("Are you sure you want to delete this tour ?")) {
-            dispatch(deleteTour({ id, toast }));
+        if (window.confirm("Are you sure you want to delete this memory ?")) {
+            dispatch(deleteMemory({ id, toast }));
         }
     };
 
     return (
         <div style={{ margin: "auto", padding: "120px", maxWidth: "900px", alignContent: "center" }}>
-            {userTours.length === 0 && (
-                <h3>No tour available with the user: {user?.result?.name}</h3>
+            {userMemories.length === 0 && (
+                <h3>No memories found for {user?.result?.name}</h3>
             )}
 
-            {userTours.length > 0 && (
+            {userMemories.length > 0 && (
                 <>
                     <h5 className="text-center">Dashboard: {user?.result?.name}</h5>
                     <hr style={{ maxWidth: "570px" }} />
                 </>
             )}
 
-            {userTours && userTours.map((item) => (
+            {userMemories && userMemories.map((item) => (
                 <MDBCardGroup key={item._id}>
                     <MDBCard style={{ maxWidth: "600px" }} className="mt-2">
                         <MDBRow className="g-0">
@@ -82,7 +82,7 @@ const Dashboard = () => {
                                         <MDBBtn className="mt-1" tag="a" color="none">
                                             <MDBIcon fas icon="trash" style={{ color: "#dd4b39" }} size="lg" onClick={() => handleDelete(item._id)} />
                                         </MDBBtn>
-                                        <Link to={`/editTour/${item._id}`}>
+                                        <Link to={`/editMemory/${item._id}`}>
                                             <MDBIcon fas icon="edit" style={{ color: "#55acee", marginLeft: "10px" }} size="lg" />
                                         </Link>
                                     </div>

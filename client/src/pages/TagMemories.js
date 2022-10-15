@@ -13,18 +13,18 @@ import {
 import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { useDispatch, useSelector } from "react-redux";
-import { getToursByTag } from "../redux/features/tourSlice";
+import { getMemoriesByTag } from "../redux/features/memorySlice";
 import { excerpt } from "../utility";
 
-const TagTours = () => {
-    const { tagTours, loading } = useSelector((state) => ({ ...state.tour }));
+const TagMemories = () => {
+    const { tagMemories, loading } = useSelector((state) => ({ ...state.memory }));
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { tag } = useParams();
 
     useEffect(() => {
         if (tag) {
-            dispatch(getToursByTag(tag));
+            dispatch(getMemoriesByTag(tag));
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tag]);
@@ -35,9 +35,9 @@ const TagTours = () => {
 
     return (
         <div style={{ margin: "auto", padding: "120px", maxWidth: "900px", alignContent: "center" }}>
-            <h3 className="text-center">Tours with tag: {tag}</h3>
+            <h3 className="text-center">Memories with tag: {tag}</h3>
             <hr style={{ maxWidth: "570px" }} />
-            {tagTours && tagTours.map((item) => (
+            {tagMemories && tagMemories.map((item) => (
                 <MDBCardGroup key={item._id}>
                     <MDBCard style={{ maxWidth: "600px" }} className="mt-2">
                         <MDBRow className="g-0">
@@ -53,7 +53,7 @@ const TagTours = () => {
                                         {excerpt(item.description, 40)}
                                     </MDBCardText>
                                     <div style={{ float: "left", marginTop: "-10px" }}>
-                                        <MDBBtn size="sm" rounded color="info" onClick={() => navigate(`/tour/${item._id}`)}>
+                                        <MDBBtn size="sm" rounded color="info" onClick={() => navigate(`/memory/${item._id}`)}>
                                             Read More
                                         </MDBBtn>
                                     </div>
@@ -67,4 +67,4 @@ const TagTours = () => {
     );
 };
 
-export default TagTours;
+export default TagMemories;

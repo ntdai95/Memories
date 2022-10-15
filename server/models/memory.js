@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const tourSchema = mongoose.Schema({
+const memorySchema = mongoose.Schema({
     title: String,
     description: String,
     name: String,
@@ -17,6 +17,6 @@ const tourSchema = mongoose.Schema({
     },
 });
 
-const TourModal = mongoose.model("Tour", tourSchema);
+const MemoryModal = mongoose.model("Memory", memorySchema);
 
-export default TourModal;
+export default MemoryModal;

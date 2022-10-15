@@ -12,9 +12,9 @@ import {
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { likeTour } from "../redux/features/tourSlice";
+import { likeMemory } from "../redux/features/memorySlice";
 
-const CardTour = ({
+const CardMemory = ({
     imageFile,
     description,
     title,
@@ -64,7 +64,7 @@ const CardTour = ({
     };
 
     const handleLike = () => {
-        dispatch(likeTour({ _id }));
+        dispatch(likeMemory({ _id }));
     };
 
     return (
@@ -74,11 +74,11 @@ const CardTour = ({
                 <div className="top-left">{name}</div>
                 <span className="text-start tag-card">
                     {tags.map((tag) => (
-                        <Link key={`${tag}`} to={`/tours/tag/${tag}`}> #{tag}</Link>
+                        <Link key={`${tag}`} to={`/memories/tag/${tag}`}> #{tag}</Link>
                     ))}
                     <MDBBtn style={{ float: "right", marginRight: "1rem" }} tag="a" color="none" onClick={!user?.result ? null : handleLike}>
                         {!user?.result ? (
-                            <MDBTooltip title="Please login to like tour" tag="a">
+                            <MDBTooltip title="Please login to like memory" tag="a">
                                 <Likes />
                             </MDBTooltip>
                         ) : (
@@ -91,7 +91,7 @@ const CardTour = ({
                     <MDBCardText className="text-start">
                         {excerpt(description)}
                         <br/><br/>
-                        <Link to={`/tour/${_id}`}>Read More</Link>
+                        <Link to={`/memory/${_id}`}>Read More</Link>
                     </MDBCardText>
                 </MDBCardBody>
             </MDBCard>
@@ -99,4 +99,4 @@ const CardTour = ({
     );
 };
 
-export default CardTour;
+export default CardMemory;

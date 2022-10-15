@@ -9,12 +9,12 @@ import Register from "./pages/Register";
 import Header from "./components/Header";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/features/authSlice";
-import AddEditTour from "./pages/AddEditTour";
-import SingleTour from "./pages/SingleTour";
+import AddEditMemory from "./pages/AddEditMemory";
+import SingleMemory from "./pages/SingleMemory";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import NotFound from "./pages/NotFound";
-import TagTours from "./pages/TagTours";
+import TagMemories from "./pages/TagMemories";
 
 function App() {
     const dispatch = useDispatch();
@@ -31,25 +31,25 @@ function App() {
                 <ToastContainer />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/tours/search" element={<Home />} />
-                    <Route path="/tours/tag/:tag" element={<TagTours />} />
+                    <Route path="/memories/search" element={<Home />} />
+                    <Route path="/memories/tag/:tag" element={<TagMemories />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route
-                        path="/addTour"
+                        path="/addMemory"
                         element={
                             <PrivateRoute>
-                                <AddEditTour />
+                                <AddEditMemory />
                             </PrivateRoute>
                         } />
                     <Route
-                        path="/editTour/:id"
+                        path="/editMemory/:id"
                         element={
                             <PrivateRoute>
-                                <AddEditTour />
+                                <AddEditMemory />
                             </PrivateRoute>
                         } />
-                    <Route path="/tour/:id" element={<SingleTour />} />
+                    <Route path="/memory/:id" element={<SingleMemory />} />
                     <Route
                         path="/dashboard"
                         element={

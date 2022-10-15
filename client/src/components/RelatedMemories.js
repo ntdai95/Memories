@@ -11,22 +11,22 @@ import {
 import { Link } from "react-router-dom";
 import { excerpt } from "../utility";
 
-const RelatedTours = ({ relatedTours, tourId }) => {
+const RelatedMemories = ({ relatedMemories, memoryId }) => {
     return (
         <>
-            {relatedTours && relatedTours.length > 0 && (
+            {relatedMemories && relatedMemories.length > 0 && (
                 <>
-                    {relatedTours.length > 1 && <h4>Related Tours</h4>}
+                    {relatedMemories.length > 1 && <h4>Related Memories</h4>}
                     <MDBRow className="row-cols-1 row-cols-md-3 g-4">
-                        {relatedTours.filter((item) => item._id !== tourId).splice(0, 3).map((item) => (
+                        {relatedMemories.filter((item) => item._id !== memoryId).splice(0, 3).map((item) => (
                             <MDBCol key={`${item._id}`}>
                                 <MDBCard>
-                                    <Link to={`/tour/${item._id}`}>
+                                    <Link to={`/memory/${item._id}`}>
                                         <MDBCardImage src={item.imageFile} alt={item.title} position="top" />
                                     </Link>
                                     <span className="text-start tag-card">
                                         {item.tags.map((tag) => (
-                                            <Link key={`${tag}`} to={`/tours/tag/${tag}`}> #{tag}</Link>
+                                            <Link key={`${tag}`} to={`/memories/tag/${tag}`}> #{tag}</Link>
                                         ))}
                                     </span>
                                     <MDBCardBody>
@@ -47,4 +47,4 @@ const RelatedTours = ({ relatedTours, tourId }) => {
     );
 };
 
-export default RelatedTours;
+export default RelatedMemories;

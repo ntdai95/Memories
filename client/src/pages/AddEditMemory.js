@@ -11,7 +11,7 @@ import FileBase from "react-file-base64";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createTour, updateTour } from "../redux/features/tourSlice";
+import { createMemory, updateMemory } from "../redux/features/memorySlice";
 
 const initialState = {
     title: "",
@@ -19,20 +19,20 @@ const initialState = {
     tags: [],
 };
 
-const AddEditTour = () => {
-    const [tourData, setTourData] = useState(initialState);
+const AddEditMemory = () => {
+    const [memoryData, setMemoryData] = useState(initialState);
     const [tagErrMsg, setTagErrMsg] = useState(null);
-    const { error, userTours } = useSelector((state) => ({ ...state.tour }));
+    const { error, userMemories } = useSelector((state) => ({ ...state.memory }));
     const { user } = useSelector((state) => ({ ...state.auth }));
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { title, description, tags } = tourData;
+    const { title, description, tags } = memoryData;
     const { id } = useParams();
 
     useEffect(() => {
         if (id) {
-            const singleTour = userTours.find((tour) => tour._id === id);
-            setTourData({ ...singleTour });
+            const singleMemory = userMemories.find((memory) => memory._id === id);
+            setMemoryData({ ...singleMemory });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
@@ -48,11 +48,11 @@ const AddEditTour = () => {
         }
 
         if (title && description && tags) {
-            const updatedTourData = { ...tourData, name: user?.result?.name };
+            const updatedMemoryData = { ...memoryData, name: user?.result?.name };
             if (!id) {
-                dispatch(createTour({ updatedTourData, navigate, toast }));
+                dispatch(createMemory({ updatedMemoryData, navigate, toast }));
             } else {
-                dispatch(updateTour({ id, updatedTourData, toast, navigate }));
+                dispatch(updateMemory({ id, updatedMemoryData, toast, navigate }));
             }
 
             handleClear();
@@ -61,29 +61,29 @@ const AddEditTour = () => {
 
     const onInputChange = (e) => {
         const { name, value } = e.target;
-        setTourData({ ...tourData, [name]: value });
+        setMemoryData({ ...memoryData, [name]: value });
     };
 
     const handleAddTag = (tag) => {
         setTagErrMsg(null);
-        setTourData({ ...tourData, tags: [...tourData.tags, tag] });
+        setMemoryData({ ...memoryData, tags: [...memoryData.tags, tag] });
     };
 
     const handleDeleteTag = (deleteTag) => {
-        setTourData({
-            ...tourData,
-            tags: tourData.tags.filter((tag) => tag !== deleteTag),
+        setMemoryData({
+            ...memoryData,
+            tags: memoryData.tags.filter((tag) => tag !== deleteTag),
         });
     };
 
     const handleClear = () => {
-        setTourData({ title: "", description: "", tags: [] });
+        setMemoryData({ title: "", description: "", tags: [] });
     };
 
     return (
         <div style={{ margin: "auto", padding: "15px", maxWidth: "450px", alignContent: "center", marginTop: "120px" }} className="container">
             <MDBCard alignment="center">
-                <h5>{id ? "Update Tour" : "Add Tour"}</h5>
+                <h5>{id ? "Update Memory" : "Add Memory"}</h5>
                 <MDBCardBody>
                     <MDBValidation onSubmit={handleSubmit} className="row g-3" noValidate>
                         <div className="col-md-12">
@@ -128,7 +128,7 @@ const AddEditTour = () => {
                                 type="file"
                                 multiple={false}
                                 onDone={({ base64 }) =>
-                                    setTourData({ ...tourData, imageFile: base64 })
+                                    setMemoryData({ ...memoryData, imageFile: base64 })
                                 } />
                         </div>
                         <div className="col-12">
@@ -146,4 +146,4 @@ const AddEditTour = () => {
     );
 };
 
-export default AddEditTour;
+export default AddEditMemory;
