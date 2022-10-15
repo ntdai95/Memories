@@ -1,4 +1,4 @@
-***Note: You need to create a .env file with MONGODB=<app_mongodb_connection_url_as_string> environment variable as well as add your current IP adress to the list of authorized IP addresses for this application inside your MongoDB online account.***
+***Note: You need to create a .env file with the MONGODB=<app_mongodb_connection_url_as_string> environment variable as well as add your current IP adress to the list of authorized IP addresses for this application inside your MongoDB online account.***
 
 # How to run the program:
 
